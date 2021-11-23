@@ -1,0 +1,53 @@
+﻿@model IEnumerable<UCPpraktikum.Models.ReadingApplication>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayName("Adventure Genre")
+            </th>
+            <th>
+                @Html.DisplayName("Action Genre")
+            </th>
+            <th>
+                @Html.DisplayName("Fantasy Genre")
+            </th>
+            <th>
+                @Html.DisplayName("ID Book")
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.AdventureGenre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ActionGenre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FantasyGenre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdBookNavigation.IdApplication)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IdBook"><i class="glyphicon glyphicon-refresh"></i></a> |
+                <a asp-action="Details" asp-route-id="@item.IdBook"><i class="glyphicon glyphicon-menu-hamburger"></i></a> |
+                <a asp-action="Delete" asp-route-id="@item.IdBook"><i class="glyphicon glyphicon-trash"></i></a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

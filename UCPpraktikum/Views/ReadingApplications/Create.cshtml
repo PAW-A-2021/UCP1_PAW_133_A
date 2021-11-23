@@ -1,0 +1,47 @@
+﻿@model UCPpraktikum.Models.ReadingApplication
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>ReadingApplication</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="IdBook" class="control-label"></label>
+                <select asp-for="IdBook" class ="form-control" asp-items="ViewBag.IdBook"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="AdventureGenre" class="control-label"></label>
+                <input asp-for="AdventureGenre" class="form-control" />
+                <span asp-validation-for="AdventureGenre" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ActionGenre" class="control-label"></label>
+                <input asp-for="ActionGenre" class="form-control" />
+                <span asp-validation-for="ActionGenre" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FantasyGenre" class="control-label"></label>
+                <input asp-for="FantasyGenre" class="form-control" />
+                <span asp-validation-for="FantasyGenre" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

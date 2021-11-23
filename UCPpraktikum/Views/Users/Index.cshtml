@@ -1,0 +1,47 @@
+﻿@model IEnumerable<UCPpraktikum.Models.User>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NicknameUser)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdUser1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdUserNavigation)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NicknameUser)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdUser1.IdApplication)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdUserNavigation.IdAdmin)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IdUser"><i class="glyphicon glyphicon-refresh"></i></a> |
+                <a asp-action="Details" asp-route-id="@item.IdUser"><i class="glyphicon glyphicon-menu-hamburger"></i></a> |
+                <a asp-action="Delete" asp-route-id="@item.IdUser"><i class="glyphicon glyphicon-trash"></i></a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
